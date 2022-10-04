@@ -25,7 +25,7 @@ app.listen(3000, () => {
   Repository.query(createSql);
 
   const insertSql = `
-    INSERT INTO people (name) values ('Dina'), ('Wesley'), ('SchoolOfNet'), ('CodeEducation');
+    INSERT INTO people (name) values ('Leoberto'), ('Teste01'), ('Full Cycle');
   `;
   Repository.query(insertSql);
 });
