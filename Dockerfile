@@ -1,13 +1,14 @@
-FROM golang:1.13.1-alpine3.10 as builder
+FROM golang:1.17.2-alpine3.14 as builder
 
+WORKDIR /usr/app
 
-WORKDIR $GOPATH/src/leoberto/golang-codeeducation-rocks/
-COPY ./code/main.go .
+COPY . .
 
-RUN go build -ldflags="-s -w" -o /go/app
+RUN go mod init hello && \
+  go build
+
 
 FROM scratch
-
-COPY --from=builder /go/app /go/app
-
-CMD ["/go/app"]
+WORKDIR /exec
+COPY --from=builder /usr/app/hello .
+CMD ["/exec/hello"]
