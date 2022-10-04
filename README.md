@@ -1,4 +1,1 @@
-# codeeducation
-Desafio Docker
-
-docker run --name golang leoberto89/codeeducation
+docker run leoberto89/codeeducation
